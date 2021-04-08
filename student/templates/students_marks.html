@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Students Marks</title>
+</head>
+<body>
+<h2 align="center" ><font color="red"> Marks List of Students GradeWise</font></h2><br>
+
+    {%for i,j,k,l in main_list%}
+    <table  align='center' border = "1"><caption  style="text-align:left"><font color="red"> Grade :{{k}}</font></caption>
+    <br><br>
+    <tr>
+        <th><font  color="blue">Name</font></th>
+        <th><font  color="blue">Surname</font></th>
+        <th><font  color="blue">Grade</font></th>
+        <th><font  color="blue">RollNo</font></th>
+        <th><font  color="blue">Marks</font></th>
+    </tr>
+    {%for detail in i%}
+    <tr>
+         <td>{{detail.fname}}</td>
+         <td>{{detail.lname}}</td>
+         <td>{{detail.grade}}</td>
+         <td>{{detail.rollno}}</td>
+         <td>{{detail.marks}}</td>
+    </tr>
+    {%endfor%}
+    <tr>
+         <td>Total Marks</td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td>{{j.marks__sum}}</td>
+    </tr>
+
+    </table><h4 align="center">Grade {{k}} Toppers</h4>{% for item in l%}<h5 align="center">{{item.fname}} {{item.lname}} with highest marks {{item.marks}} and RollNo {{item.rollno}}{%endfor%}</h5></h4><br><br><br>
+    {%endfor%}
+<button  onclick="window.location.href='http://127.0.0.1:8000/student/home';" type="button" style="font-size: 20px;height:40px;width:400px;background-color:green;margin-left:auto;margin-right:auto;display:block;margin-top:8%;margin-bottom:0%"> Click here to Home Page </button>
+</body>
+</html>
